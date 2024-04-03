@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+    <link rel="stylesheet" href="style.css" />
+    <title>{% block title %}{% endblock %} - My Webpage</title>
+    {% endblock %}
+    </head>
+<body>
+    <header class="navbar" id="wide-navbar">
+        <a href="/" class="home-link">
+            <img src="" alt="zalgado" class="logo">
+        </a>
+        <div class="links" style="max-width: 1169px;">
+            <div class="nav-item"><a href="/about" class="nav-link">about</a></div>
+            <div class="nav-item"><a href="/blog" class="nav-link">blog</a></div>
+            <div class="nav-item"><a href="/gallery" class="nav-link">gallery</a></div>
+            <div class="nav-item"><a href="/resume" class="nav-link">resume</a></div>
+            {% if isEditor() %}
+                <div class="nav-item"><a href="/editor" class="nav-link">*</a></div>
+            {% endif %}
+    </header>
+    <div id="content">
+        <div><h1>{% block title %}{% endblock %}</h1></div>
+        {% block content %}{% endblock %}
+    </div>
+</body>
+<footer>
+    this is a footer !
+</footer>
+</html>
