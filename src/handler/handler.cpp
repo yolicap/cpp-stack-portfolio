@@ -20,16 +20,31 @@ void WebsiteHandler::setRoutes() {
     if (isSSL) {
         // TODO: SSL routes
     } else {
+        
+        // TODO : extract routes
+        svr.Get("/", [](const Request& /*req*/, Response& res) {
+            res.set_content("Hello World!", "text/plain");
+        });
+
+        svr.Get("/index", [](const Request& /*req*/, Response& res) {
+            res.set_content("Hello World!", "text/plain");
+        });
+
+        svr.Get("/home", [](const Request& /*req*/, Response& res) {
+            res.set_content("Hello World!", "text/plain");
+        });
+
         svr.Get("/hi", [](const Request& /*req*/, Response& res) {
             res.set_content("Hello World!", "text/plain");
         });
+
+        svr.Get("/blog", [](const httplib::Request &, httplib::Response &res) {
+            res.set_content("Blog", "text/plain");
+            // builder.build blog
+        });   
     }
 }
 
-    // svr.Get("/blog", [](const httplib::Request &, httplib::Response &res) {
-    //   res.set_content("Blog", "text/plain");
-    //   // builder.build blog
-    // });   
 
     // /* POST */
     // svr.Post("/new-post", [](const httplib::Request &, httplib::Response &res) {

@@ -1,6 +1,9 @@
 # CXX = clang++
 # CXX = gcc
 CXXFLAGS = -O2 -std=c++11 -I libs/ -Wall -Wextra -pthread -v
+DEPENDENCIES-HEADER-FILES = libs/httplib.h libs/inja.h
+CORE-CPP-FILES = src/builder/builder.cpp src/handler/handler.cpp
+CORE-HEADER-FILES = src/builder/builder.h src/handler/handler.h
 
 # PREFIX = /usr/local
 # PREFIX = $(shell brew --prefix)
@@ -14,8 +17,8 @@ CXXFLAGS = -O2 -std=c++11 -I libs/ -Wall -Wextra -pthread -v
 
 # all: server client hello simplecli simplesvr upload redirect ssesvr ssecli benchmark issue
 
-website : src/website.cpp src/handler.h src/handler.cpp libs/httplib.h Makefile
-	$(CXX) -o website $(CXXFLAGS) src/website.cpp src/handler.cpp
+website : src/website.cpp $(CORE-HEADER-FILES) $(DEPENDENCIES-HEADER-FILES) Makefile
+	$(CXX) -o website $(CXXFLAGS) $(CORE-CPP-FILES)
 
 # TODO : download httplib library from github 
 

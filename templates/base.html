@@ -20,9 +20,10 @@
                 <div class="nav-item"><a href="/editor" class="nav-link">*</a></div>
             {% endif %}
     </header>
+
     <div id="content">
         <div><h1>{% block title %}{% endblock %}</h1></div>
-        {% block content %}{% endblock %}
+        {% include \"content\" %}
     </div>
 </body>
 <footer>
