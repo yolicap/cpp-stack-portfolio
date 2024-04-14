@@ -9,6 +9,11 @@ widget library : [wt](https://www.webtoolkit.eu/wt)
 
 come back in a couple of years to find out if i finished this ! woohoo 🥳
 
-# cpp-stack-portfolio
+ # build instructions
+ 
+ `cmake -S . -B build/ $$ cmake --build ./build`
+
+ # todo
  - install dependencies w make rather than saving in libs/
  - more efficient make instructions
+ - add options

@@ -1,6 +1,5 @@
 // handler.cpp
 #include "handler.h"
-
 using namespace handler;
 
 bool WebsiteHandler::start(string dns, int port) {
